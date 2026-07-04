@@ -6,13 +6,13 @@ const stations=[
     "correct": "rot",
     "options": [
       "rot",
-      "rostrot",
-      "orange",
-      "braun",
-      "dunkelrot",
+      "blau",
+      "grün",
       "gelb",
       "schwarz",
-      "silber"
+      "weiß",
+      "silber",
+      "violett"
     ]
   },
   {
@@ -55,12 +55,12 @@ const stations=[
     "options": [
       "gelb-schwarz",
       "rot-weiß",
-      "gelb-rot",
-      "schwarz-weiß",
-      "grün-gelb",
-      "orange-schwarz",
       "blau-weiß",
-      "rot-schwarz"
+      "grün-weiß",
+      "schwarz-weiß",
+      "blau-gelb",
+      "grün-schwarz",
+      "weiß-orange"
     ]
   },
   {
