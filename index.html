@@ -9,8 +9,18 @@
 <body>
   <header class="site-head">
     <div class="brand"><span>Landschaftspark Duisburg-Nord</span><h1>Fotorallye</h1></div>
-    <div class="score-pill" aria-live="polite"><strong id="headerScore">0</strong><span>Punkte</span></div>
+    <div class="head-status"><span id="playerBadge" class="player-badge"></span><div class="score-pill" aria-live="polite"><strong id="headerScore">0</strong><span>Punkte</span></div></div>
   </header>
+  <div id="nameGate" class="name-gate" role="dialog" aria-modal="true" aria-labelledby="nameTitle">
+    <form id="nameForm" class="name-card">
+      <p>Landschaftspark Duisburg-Nord</p>
+      <h2 id="nameTitle">Teamname eingeben</h2>
+      <label for="playerName">Name</label>
+      <input id="playerName" name="playerName" type="text" autocomplete="off" maxlength="32" placeholder="z.B. Team Hochofen" required>
+      <button class="primary-action" type="submit">Start freischalten</button>
+      <small>Der Name wird auf diesem Gerät gespeichert.</small>
+    </form>
+  </div>
   <main>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <section id="homeView" class="view home-view is-active" aria-label="Start">
@@ -38,7 +48,6 @@
       <nav class="view-nav"><button class="ghost-action" type="button" data-view="homeView">Start</button><button class="ghost-action" type="button" data-view="rallyView">Fotorallye</button></nav>
       <div class="progress-hero"><p>Mein Fortschritt</p><h2><span id="totalScore">0</span> Punkte</h2><div class="progress-line"><span id="progressFill"></span></div><small id="finishedCount">0 von 15 Fragen abgeschlossen</small></div>
       <div id="progressList" class="progress-list"></div>
-      <button id="resetBtn" class="danger-action" type="button">Fortschritt zurücksetzen</button>
     </section>
   </main>
   <script src="script.js"></script>
