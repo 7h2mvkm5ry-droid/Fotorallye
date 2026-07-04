@@ -1,19 +1,229 @@
 const stations=[
-{title:"Bild 1",prompt:"Wie viele große Ventilatoren sind an der Wand zu sehen?",correct:"3 Ventilatoren",options:["3 Ventilatoren","2 Ventilatoren","4 Ventilatoren","5 Ventilatoren","1 Ventilator","6 Ventilatoren","3 Rohre","3 Fenster"]},
-{title:"Bild 2",prompt:"Welche Grundform hat der große Behälter im Mittelpunkt?",correct:"Zylindrisch",options:["Zylindrisch","Würfelförmig","Pyramidenförmig","Kegelförmig","Kugelförmig","Quaderförmig","Ringförmig","Treppenförmig"]},
-{title:"Bild 3",prompt:"Welche Farbe hat das Geländer an der Treppe?",correct:"Hellgelb",options:["Hellgelb","Dunkelrot","Moosgrün","Schwarz","Silbergrau","Rostbraun","Blau","Weiß"]},
-{title:"Bild 4",prompt:"Welche Farbe hat das große gebogene Rohr?",correct:"Rostorange",options:["Rostorange","Signalrot","Hellblau","Tannengrün","Schwarz","Weiß","Violett","Gelb"]},
-{title:"Bild 5",prompt:"Welche Farbe hat der große Träger oben?",correct:"Rot",options:["Rot","Grün","Blau","Gelb","Schwarz","Weiß","Grau","Braun"]},
-{title:"Bild 6",prompt:"Was wächst am oder hinter dem Gitter?",correct:"Grüne Pflanzen",options:["Grüne Pflanzen","Rote Blumen","Gelbes Gras","Moosige Steine","Efeu aus Metall","Kleine Bäume","Schilf","Dornenhecken"]},
-{title:"Bild 7",prompt:"Aus welchem Material wirkt der hohe Schornstein gebaut?",correct:"Backstein",options:["Backstein","Betonplatten","Glas","Holz","Stahlblech","Naturstein","Kupfer","Kunststoff"]},
-{title:"Bild 8",prompt:"Wie viele hohe dunkle Wände stehen deutlich im Vordergrund?",correct:"3 Wände",options:["3 Wände","1 Wand","2 Wände","4 Wände","5 Wände","6 Wände","3 Türme","3 Schornsteine"]},
-{title:"Bild 9",prompt:"Welches Wort steht oben rechts auf der Infotafel?",correct:"Wassersystem",options:["Wassersystem","Wasserwerk","Wasserleitung","Wasserbecken","Wasserpark","Wasserweg","Wassertechnik","Wasserstation"]},
-{title:"Bild 10",prompt:"Was spiegelt sich besonders im Wasser?",correct:"Brücke und Himmel",options:["Brücke und Himmel","Schornstein und Feuer","Treppe und Tür","Blumen und Schild","Kran und Schild","Fenster und Wand","Rohr und Ventilator","Gitter und Gras"]},
-{title:"Bild 11",prompt:"Wie viele kleine helle Öffnungen sieht man oben an der Rückwand?",correct:"3 Öffnungen",options:["3 Öffnungen","1 Öffnung","2 Öffnungen","4 Öffnungen","5 Öffnungen","6 Öffnungen","3 Türen","3 Lampen"]},
-{title:"Bild 12",prompt:"Welche zwei Farben fallen an den Gittern besonders auf?",correct:"Weiß und Rot",options:["Weiß und Rot","Grün und Blau","Gelb und Schwarz","Braun und Grau","Orange und Blau","Weiß und Grün","Rot und Gelb","Schwarz und Silber"]},
-{title:"Bild 13",prompt:"Welche Form haben die beiden großen Türen in der Mitte?",correct:"Rechteckig",options:["Rechteckig","Rund","Dreieckig","Oval","Sechseckig","Bogenförmig","Zickzackförmig","Spiralförmig"]},
-{title:"Bild 14",prompt:"Wie viele senkrechte graue Rohre stehen links vor der Backsteinwand?",correct:"2 Rohre",options:["2 Rohre","1 Rohr","3 Rohre","4 Rohre","5 Rohre","6 Rohre","2 Schornsteine","2 Türen"]},
-{title:"Bild 15",prompt:"Welche Farbe haben die Blüten auf dem Schild?",correct:"Violett",options:["Violett","Rot","Gelb","Weiß","Blau","Orange","Grün","Schwarz"]}
+  {
+    "title": "Bild 1",
+    "prompt": "Welche Farbe hat die linke Turbine?",
+    "correct": "rot",
+    "options": [
+      "rot",
+      "rostrot",
+      "orange",
+      "braun",
+      "dunkelrot",
+      "gelb",
+      "schwarz",
+      "silber"
+    ]
+  },
+  {
+    "title": "Bild 2",
+    "prompt": "Welches ist das letzte englische Wort auf der Erklärungs-Tafel?",
+    "correct": "reef",
+    "options": [
+      "reef",
+      "river",
+      "water",
+      "system",
+      "bridge",
+      "plant",
+      "steel",
+      "park"
+    ]
+  },
+  {
+    "title": "Bild 3",
+    "prompt": "Aus welchem Jahrzehnt stammt der Architekturstil dieses Gebäudes?",
+    "correct": "1950er",
+    "options": [
+      "1950er",
+      "1930er",
+      "1940er",
+      "1960er",
+      "1970er",
+      "1920er",
+      "1980er",
+      "1910er"
+    ]
+  },
+  {
+    "title": "Bild 4",
+    "prompt": "Welche Farbkombination verbirgt sich hinter dem, was hier pink ist?",
+    "correct": "gelb-schwarz",
+    "options": [
+      "gelb-schwarz",
+      "rot-weiß",
+      "gelb-rot",
+      "schwarz-weiß",
+      "grün-gelb",
+      "orange-schwarz",
+      "blau-weiß",
+      "rot-schwarz"
+    ]
+  },
+  {
+    "title": "Bild 5",
+    "prompt": "Wann wurde dieser Kran gebaut?",
+    "correct": "1953",
+    "options": [
+      "1953",
+      "1950",
+      "1951",
+      "1952",
+      "1954",
+      "1955",
+      "1963",
+      "1943"
+    ]
+  },
+  {
+    "title": "Bild 6",
+    "prompt": "Wie wurden die Bunkerverschlüsse geöffnet? Lies auf der Erklärungs-Tafel nach.",
+    "correct": "per Hand",
+    "options": [
+      "per Hand",
+      "mit Dampf",
+      "elektrisch",
+      "hydraulisch",
+      "mit Druckluft",
+      "per Kettenzug",
+      "automatisch",
+      "mit Motor"
+    ]
+  },
+  {
+    "title": "Bild 7",
+    "prompt": "Wo der Kreis ist, ist ein kleines gelbes Schild. Welche Zahl steht darauf?",
+    "correct": "1",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "7",
+      "10",
+      "11"
+    ]
+  },
+  {
+    "title": "Bild 8",
+    "prompt": "Welche Farbe hat der Punkt neben „das Gelbe vom Ei“?",
+    "correct": "blau",
+    "options": [
+      "blau",
+      "gelb",
+      "grün",
+      "rot",
+      "orange",
+      "schwarz",
+      "weiß",
+      "violett"
+    ]
+  },
+  {
+    "title": "Bild 9",
+    "prompt": "Wodurch herrscht hier Lebensgefahr?",
+    "correct": "Stahlteile unter Wasser",
+    "options": [
+      "Stahlteile unter Wasser",
+      "Stromleitungen im Wasser",
+      "giftige Gase am Wasser",
+      "tiefe Schächte am Wasser",
+      "rutschige Steine im Wasser",
+      "heiße Rohre unter Wasser",
+      "scharfe Kanten am Ufer",
+      "lockere Geländer am Becken"
+    ]
+  },
+  {
+    "title": "Bild 10",
+    "prompt": "Wie viele Maschinen stehen in der alten Schlackeschäumanlage?",
+    "correct": "7",
+    "options": [
+      "7",
+      "5",
+      "6",
+      "8",
+      "9",
+      "10",
+      "4",
+      "3"
+    ]
+  },
+  {
+    "title": "Bild 11",
+    "prompt": "Wohin geht es links die Treppe rauf? Das Schild verrät es.",
+    "correct": "Aussichtsturm HO5",
+    "options": [
+      "Aussichtsturm HO5",
+      "Aussichtsturm HO1",
+      "Aussichtsturm HO2",
+      "Aussichtsturm HO3",
+      "Aussichtsturm HO4",
+      "Hochofenstraße",
+      "Gießhalle HO5",
+      "Erzbunker HO5"
+    ]
+  },
+  {
+    "title": "Bild 12",
+    "prompt": "Wie viele Arbeitsbereiche waren ursprünglich in der Wassermannwerkstatt untergebracht?",
+    "correct": "3",
+    "options": [
+      "3",
+      "2",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ]
+  },
+  {
+    "title": "Bild 13",
+    "prompt": "Wie viele Bilder hängen in der Hochofenstraße?",
+    "correct": "8",
+    "options": [
+      "8",
+      "6",
+      "7",
+      "9",
+      "10",
+      "11",
+      "12",
+      "5"
+    ]
+  },
+  {
+    "title": "Bild 14",
+    "prompt": "Bis wohin wird gespeichertes Wasser aus der Erzbunkeranlage geleitet?",
+    "correct": "Klarwasserkanal",
+    "options": [
+      "Klarwasserkanal",
+      "Abwasserkanal",
+      "Regenwasserbecken",
+      "Kühlwasserbecken",
+      "Emscherkanal",
+      "Sammelbecken",
+      "Wasserspeicher",
+      "Pumpenhaus"
+    ]
+  },
+  {
+    "title": "Bild 15",
+    "prompt": "Welche Traglast haben Podest und Ladeklappe?",
+    "correct": "5000kg",
+    "options": [
+      "5000kg",
+      "2500kg",
+      "3000kg",
+      "4000kg",
+      "4500kg",
+      "5500kg",
+      "6000kg",
+      "7500kg"
+    ]
+  }
 ];
 const storageKey="landschaftspark-rallye-v2";const views=document.querySelectorAll(".view");const stationGrid=document.querySelector("#stationGrid");const answerGrid=document.querySelector("#answerGrid");const feedback=document.querySelector("#feedback");const headerScore=document.querySelector("#headerScore");const totalScore=document.querySelector("#totalScore");const finishedCount=document.querySelector("#finishedCount");const progressFill=document.querySelector("#progressFill");const progressList=document.querySelector("#progressList");let state=JSON.parse(localStorage.getItem(storageKey)||"{}");let currentIndex=0;
 function save(){localStorage.setItem(storageKey,JSON.stringify(state))}function pos(index){const col=index%3;const row=Math.floor(index/3);return (col*50)+"% "+(row*25)+"%"}function showView(id){views.forEach(view=>view.classList.toggle("is-active",view.id===id));if(id==="rallyView")renderStations();if(id==="progressView")renderProgress()}function resultFor(index){return state[String(index+1)]||null}function total(){return Object.values(state).reduce((sum,item)=>sum+(item.points||0),0)}function attemptsFor(index){return state["attempts-"+(index+1)]||0}function setAttempts(index,value){state["attempts-"+(index+1)]=value;save()}function updateScore(){headerScore.textContent=total()}
