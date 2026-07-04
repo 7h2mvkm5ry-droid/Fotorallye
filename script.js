@@ -1,5 +1,6 @@
 const stations=[
   {
+    "image": "assets/stations/bild-01.jpg",
     "title": "Bild 1",
     "prompt": "Welche Farbe hat die linke Turbine?",
     "correct": "rot",
@@ -15,6 +16,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-02.jpg",
     "title": "Bild 2",
     "prompt": "Welches ist das letzte englische Wort auf der Erklärungs-Tafel?",
     "correct": "reef",
@@ -30,6 +32,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-03.jpg",
     "title": "Bild 3",
     "prompt": "Aus welchem Jahrzehnt stammt der Architekturstil dieses Gebäudes?",
     "correct": "1950er",
@@ -45,6 +48,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-04.jpg",
     "title": "Bild 4",
     "prompt": "Welche Farbkombination verbirgt sich hinter dem, was hier pink ist?",
     "correct": "gelb-schwarz",
@@ -60,6 +64,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-05.jpg",
     "title": "Bild 5",
     "prompt": "Wann wurde dieser Kran gebaut?",
     "correct": "1953",
@@ -75,6 +80,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-06.jpg",
     "title": "Bild 6",
     "prompt": "Wie wurden die Bunkerverschlüsse geöffnet? Lies auf der Erklärungs-Tafel nach.",
     "correct": "per Hand",
@@ -90,6 +96,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-07.jpg",
     "title": "Bild 7",
     "prompt": "Wo der Kreis ist, ist ein kleines gelbes Schild. Welche Zahl steht darauf?",
     "correct": "1",
@@ -105,6 +112,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-08.jpg",
     "title": "Bild 8",
     "prompt": "Welche Farbe hat der Punkt neben „das Gelbe vom Ei“?",
     "correct": "blau",
@@ -120,6 +128,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-09.jpg",
     "title": "Bild 9",
     "prompt": "Wodurch herrscht hier Lebensgefahr?",
     "correct": "Stahlteile unter Wasser",
@@ -135,6 +144,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-10.jpg",
     "title": "Bild 10",
     "prompt": "Wie viele Maschinen stehen in der alten Schlackeschäumanlage?",
     "correct": "7",
@@ -150,6 +160,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-11.jpg",
     "title": "Bild 11",
     "prompt": "Wohin geht es links die Treppe rauf? Das Schild verrät es.",
     "correct": "Aussichtsturm HO5",
@@ -165,6 +176,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-12.jpg",
     "title": "Bild 12",
     "prompt": "Wie viele Arbeitsbereiche waren ursprünglich in der Wassermannwerkstatt untergebracht?",
     "correct": "3",
@@ -180,6 +192,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-13.jpg",
     "title": "Bild 13",
     "prompt": "Wie viele Bilder hängen in der Hochofenstraße?",
     "correct": "8",
@@ -195,6 +208,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-14.jpg",
     "title": "Bild 14",
     "prompt": "Bis wohin wird gespeichertes Wasser aus der Erzbunkeranlage geleitet?",
     "correct": "Klarwasserkanal",
@@ -210,6 +224,7 @@ const stations=[
     ]
   },
   {
+    "image": "assets/stations/bild-15.jpg",
     "title": "Bild 15",
     "prompt": "Welche Traglast haben Podest und Ladeklappe?",
     "correct": "5000kg",
@@ -227,8 +242,8 @@ const stations=[
 ];
 const storageKey="landschaftspark-rallye-v2";const views=document.querySelectorAll(".view");const stationGrid=document.querySelector("#stationGrid");const answerGrid=document.querySelector("#answerGrid");const feedback=document.querySelector("#feedback");const headerScore=document.querySelector("#headerScore");const totalScore=document.querySelector("#totalScore");const finishedCount=document.querySelector("#finishedCount");const progressFill=document.querySelector("#progressFill");const progressList=document.querySelector("#progressList");let state=JSON.parse(localStorage.getItem(storageKey)||"{}");let currentIndex=0;
 function save(){localStorage.setItem(storageKey,JSON.stringify(state))}function pos(index){const col=index%3;const row=Math.floor(index/3);return (col*50)+"% "+(row*25)+"%"}function showView(id){views.forEach(view=>view.classList.toggle("is-active",view.id===id));if(id==="rallyView")renderStations();if(id==="progressView")renderProgress()}function resultFor(index){return state[String(index+1)]||null}function total(){return Object.values(state).reduce((sum,item)=>sum+(item.points||0),0)}function attemptsFor(index){return state["attempts-"+(index+1)]||0}function setAttempts(index,value){state["attempts-"+(index+1)]=value;save()}function updateScore(){headerScore.textContent=total()}
-function renderStations(){updateScore();stationGrid.innerHTML="";stations.forEach((station,index)=>{const result=resultFor(index);const button=document.createElement("button");button.type="button";button.className="station-btn"+(result?" is-complete":"");button.style.setProperty("--pos",pos(index));button.dataset.points=result?result.points:0;button.innerHTML="<strong>"+station.title+"</strong><small>"+(result?"abgeschlossen":"offen")+"</small>";button.addEventListener("click",()=>{if(result){showView("progressView");return}openQuestion(index)});stationGrid.appendChild(button)})}
-function openQuestion(index){currentIndex=index;const station=stations[index];document.querySelector("#questionNumber").textContent=station.title;document.querySelector("#questionText").textContent=station.prompt;document.querySelector("#questionImage").style.setProperty("--pos",pos(index));feedback.textContent="";renderAnswers();showView("questionView")}
+function renderStations(){updateScore();stationGrid.innerHTML="";stations.forEach((station,index)=>{const result=resultFor(index);const button=document.createElement("button");button.type="button";button.className="station-btn"+(result?" is-complete":"");button.style.setProperty("--img", "url('" + station.image + "')");button.dataset.points=result?result.points:0;button.innerHTML="<strong>"+station.title+"</strong><small>"+(result?"abgeschlossen":"offen")+"</small>";button.addEventListener("click",()=>{if(result){showView("progressView");return}openQuestion(index)});stationGrid.appendChild(button)})}
+function openQuestion(index){currentIndex=index;const station=stations[index];document.querySelector("#questionNumber").textContent=station.title;document.querySelector("#questionText").textContent=station.prompt;const questionImage=document.querySelector("#questionImage");questionImage.src=station.image;questionImage.alt=station.title+" Originalbild";feedback.textContent="";renderAnswers();showView("questionView")}
 function renderAnswers(){const station=stations[currentIndex];const attempts=attemptsFor(currentIndex);document.querySelector("#attemptInfo").textContent=attempts===0?"3 Punkte möglich":"1 Punkt möglich";answerGrid.innerHTML="";station.options.forEach(option=>{const button=document.createElement("button");button.type="button";button.className="answer-btn";button.textContent=option;button.addEventListener("click",()=>answer(option,button));answerGrid.appendChild(button)})}
 function finishQuestion(points,chosen){const id=String(currentIndex+1);state[id]={points:points,chosen:chosen,correct:stations[currentIndex].correct,title:stations[currentIndex].title};delete state["attempts-"+id];save();updateScore();answerGrid.querySelectorAll("button").forEach(btn=>btn.disabled=true);window.setTimeout(()=>showView("progressView"),900)}
 function answer(option,button){const station=stations[currentIndex];const attempts=attemptsFor(currentIndex);if(option===station.correct){button.classList.add("is-right");feedback.textContent=attempts===0?"Richtig. Das gibt 3 Punkte.":"Richtig. Das gibt 1 Punkt.";finishQuestion(attempts===0?3:1,option);return}button.classList.add("is-wrong");button.disabled=true;if(attempts===0){setAttempts(currentIndex,1);feedback.textContent="Nicht ganz. Du hast noch einen Versuch für 1 Punkt.";document.querySelector("#attemptInfo").textContent="1 Punkt möglich";return}feedback.textContent="Leider falsch. Die Frage ist abgeschlossen.";finishQuestion(0,option)}
