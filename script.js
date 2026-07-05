@@ -548,8 +548,13 @@ async function requireTeamName() {
       } else {
         localStorage.removeItem(teamKey);
         team = null;
+        state = {};
+        saveLocal();
+        renderStations();
+        renderProgress();
+        updateFinishBanner();
         nameGate.classList.add("is-active");
-        showToast("Team wurde gel\u00F6scht. Bitte neu anmelden.");
+        showToast("Team wurde gel\\u00F6scht. Bitte neu anmelden.");
       }
     } catch (error) {
       showToast("Firebase nicht erreichbar. Lokaler Stand wird angezeigt.");
