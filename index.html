@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#151816">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Fotorallye">
-  <link rel="stylesheet" href="style.css?v=20260705-umlaut2">
+  <link rel="stylesheet" href="style.css?v=20260705-flow4">
 </head>
 <body>
   <div id="splashScreen" class="splash-screen is-active" aria-hidden="true"><img src="assets/icons/app-icon.png" alt=""></div>
@@ -24,6 +24,7 @@
       <h2 id="nameTitle">Teamname eingeben</h2>
       <label for="playerName">Name</label>
       <input id="playerName" name="playerName" type="text" autocomplete="off" maxlength="32" placeholder="z.B. Team Hochofen" required>
+      <strong id="nameError" class="name-error" role="alert" aria-live="assertive"></strong>
       <button class="primary-action" type="submit">Start freischalten</button>
       <small>Der Name wird zentral gespeichert. Jeder Teamname ist nur einmal erlaubt.</small>
     </form>
@@ -57,9 +58,12 @@
       <div id="progressList" class="progress-list"></div>
     </section>
   </main>
-  <script type="module" src="script.js?v=20260705-umlaut2"></script>
+  <script type="module" src="script.js?v=20260705-flow4"></script>
 </body>
 </html>
+
+
+
 
 
 

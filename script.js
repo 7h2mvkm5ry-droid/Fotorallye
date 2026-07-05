@@ -276,6 +276,7 @@ const splashScreen = document.querySelector("#splashScreen");
 const nameGate = document.querySelector("#nameGate");
 const nameForm = document.querySelector("#nameForm");
 const playerNameInput = document.querySelector("#playerName");
+const nameError = document.querySelector("#nameError");
 const playerBadge = document.querySelector("#playerBadge");
 const toast = document.querySelector("#toast");
 
@@ -471,12 +472,7 @@ function answer(option, button) {
   if (attempts === 0) {
     setAttempts(currentIndex, 1);
     feedback.textContent = "Nicht ganz. Du hast noch einen Versuch f\u00FCr 1 Punkt.";
-    answerGrid.querySelectorAll("button").forEach((btn) => { btn.disabled = true; });
     document.querySelector("#attemptInfo").textContent = "1 Punkt m\u00F6glich";
-    window.setTimeout(() => {
-      showView("rallyView");
-      showToast("Noch ein Versuch f\u00FCr 1 Punkt m\u00F6glich.");
-    }, 700);
     return;
   }
   feedback.textContent = "Leider falsch. Die Frage ist abgeschlossen.";
@@ -560,6 +556,7 @@ function startIntro() {
 nameForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const name = playerNameInput.value.trim();
+  nameError.textContent = "";
   if (!name) return;
   const submitButton = nameForm.querySelector("button[type='submit']");
   submitButton.disabled = true;
@@ -571,7 +568,8 @@ nameForm.addEventListener("submit", async (event) => {
     renderStations();
     renderProgress();
   } catch (error) {
-    showToast(error.message || "Anmeldung fehlgeschlagen");
+    nameError.textContent = error.message || "Anmeldung fehlgeschlagen";
+    playerNameInput.focus();
   } finally {
     submitButton.disabled = false;
     submitButton.textContent = "Start freischalten";
@@ -586,6 +584,10 @@ renderStations();
 renderProgress();
 showView("homeView");
 startIntro();
+
+
+
+
 
 
 
