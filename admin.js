@@ -50,13 +50,13 @@ function renderTeams(snapshot) {
       <div class="admin-team__main">
         <strong>${team.name || team.id}</strong>
         <span>${team.totalScore || 0} Punkte · ${team.completedCount || 0} von 15 erledigt</span>
-        <small>Angemeldet: ${formatDate(team.createdAt)} · Letzte Aktivitaet: ${formatDate(team.updatedAt)}</small>
+        <small>Angemeldet: ${formatDate(team.createdAt)} · Letzte Aktivität: ${formatDate(team.updatedAt)}</small>
         <small>${completedText}</small>
       </div>
-      <button class="danger-action" type="button">Loeschen</button>
+      <button class="danger-action" type="button">Löschen</button>
     `;
     item.querySelector("button").addEventListener("click", async () => {
-      const ok = window.confirm("Team '" + (team.name || team.id) + "' wirklich loeschen?");
+      const ok = window.confirm("Team '" + (team.name || team.id) + "' wirklich löschen?");
       if (!ok) return;
       await deleteDoc(doc(db, "teams", team.id));
     });
@@ -67,3 +67,4 @@ function renderTeams(snapshot) {
 onSnapshot(collection(db, "teams"), renderTeams, (error) => {
   adminList.innerHTML = "<article class='progress-item'><div><strong>Firebase-Fehler</strong><small>" + error.message + "</small></div></article>";
 });
+

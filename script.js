@@ -28,10 +28,10 @@ const stations=[
     "options": [
       "rot",
       "blau",
-      "grÃ¼n",
+      "grün",
       "gelb",
       "schwarz",
-      "weiÃŸ",
+      "weiß",
       "silber",
       "violett"
     ]
@@ -39,7 +39,7 @@ const stations=[
   {
     "image": "assets/stations/bild-02.jpg",
     "title": "Bild 2",
-    "prompt": "Welches ist das letzte englische Wort auf der ErklÃ¤rungs-Tafel?",
+    "prompt": "Welches ist das letzte englische Wort auf der Erklärungs-Tafel?",
     "correct": "reef",
     "options": [
       "reef",
@@ -55,7 +55,7 @@ const stations=[
   {
     "image": "assets/stations/bild-03.jpg",
     "title": "Bild 3",
-    "prompt": "Aus welchem Jahrzehnt stammt der Architekturstil dieses GebÃ¤udes?",
+    "prompt": "Aus welchem Jahrzehnt stammt der Architekturstil dieses Gebäudes?",
     "correct": "1950er",
     "options": [
       "1950er",
@@ -75,13 +75,13 @@ const stations=[
     "correct": "gelb-schwarz",
     "options": [
       "gelb-schwarz",
-      "rot-weiÃŸ",
-      "blau-weiÃŸ",
-      "grÃ¼n-weiÃŸ",
-      "schwarz-weiÃŸ",
+      "rot-weiß",
+      "blau-weiß",
+      "grün-weiß",
+      "schwarz-weiß",
       "blau-gelb",
-      "grÃ¼n-schwarz",
-      "weiÃŸ-orange"
+      "grün-schwarz",
+      "weiß-orange"
     ]
   },
   {
@@ -103,7 +103,7 @@ const stations=[
   {
     "image": "assets/stations/bild-06.jpg",
     "title": "Bild 6",
-    "prompt": "Wie wurden die BunkerverschlÃ¼sse geÃ¶ffnet? Lies auf der ErklÃ¤rungs-Tafel nach.",
+    "prompt": "Wie wurden die Bunkerverschlüsse geöffnet? Lies auf der Erklärungs-Tafel nach.",
     "correct": "per Hand",
     "options": [
       "per Hand",
@@ -135,16 +135,16 @@ const stations=[
   {
     "image": "assets/stations/bild-08.jpg",
     "title": "Bild 8",
-    "prompt": "Welche Farbe hat der Punkt neben â€ždas Gelbe vom Eiâ€œ?",
+    "prompt": "Welche Farbe hat der Punkt neben „das Gelbe vom Ei“?",
     "correct": "blau",
     "options": [
       "blau",
       "gelb",
-      "grÃ¼n",
+      "grün",
       "rot",
       "orange",
       "schwarz",
-      "weiÃŸ",
+      "weiß",
       "violett"
     ]
   },
@@ -157,17 +157,17 @@ const stations=[
       "Stahlteile unter Wasser",
       "Stromleitungen im Wasser",
       "giftige Gase am Wasser",
-      "tiefe SchÃ¤chte am Wasser",
+      "tiefe Schächte am Wasser",
       "rutschige Steine im Wasser",
-      "heiÃŸe Rohre unter Wasser",
+      "heiße Rohre unter Wasser",
       "scharfe Kanten am Ufer",
-      "lockere GelÃ¤nder am Becken"
+      "lockere Geländer am Becken"
     ]
   },
   {
     "image": "assets/stations/bild-10.jpg",
     "title": "Bild 10",
-    "prompt": "Wie viele Maschinen stehen in der alten SchlackeschÃ¤umanlage?",
+    "prompt": "Wie viele Maschinen stehen in der alten Schlackeschäumanlage?",
     "correct": "7",
     "options": [
       "7",
@@ -183,7 +183,7 @@ const stations=[
   {
     "image": "assets/stations/bild-11.jpg",
     "title": "Bild 11",
-    "prompt": "Wohin geht es links die Treppe rauf? Das Schild verrÃ¤t es.",
+    "prompt": "Wohin geht es links die Treppe rauf? Das Schild verrät es.",
     "correct": "Aussichtsturm HO5",
     "options": [
       "Aussichtsturm HO5",
@@ -191,15 +191,15 @@ const stations=[
       "Aussichtsturm HO2",
       "Aussichtsturm HO3",
       "Aussichtsturm HO4",
-      "HochofenstraÃŸe",
-      "GieÃŸhalle HO5",
+      "Hochofenstraße",
+      "Gießhalle HO5",
       "Erzbunker HO5"
     ]
   },
   {
     "image": "assets/stations/bild-12.jpg",
     "title": "Bild 12",
-    "prompt": "Wie viele Arbeitsbereiche waren ursprÃ¼nglich in der Wassermannwerkstatt untergebracht?",
+    "prompt": "Wie viele Arbeitsbereiche waren ursprünglich in der Wassermannwerkstatt untergebracht?",
     "correct": "3",
     "options": [
       "3",
@@ -215,7 +215,7 @@ const stations=[
   {
     "image": "assets/stations/bild-13.jpg",
     "title": "Bild 13",
-    "prompt": "Wie viele Bilder hÃ¤ngen in der HochofenstraÃŸe?",
+    "prompt": "Wie viele Bilder hängen in der Hochofenstraße?",
     "correct": "8",
     "options": [
       "8",
@@ -237,7 +237,7 @@ const stations=[
       "Klarwasserkanal",
       "Abwasserkanal",
       "Regenwasserbecken",
-      "KÃ¼hlwasserbecken",
+      "Kühlwasserbecken",
       "Emscherkanal",
       "Sammelbecken",
       "Wasserspeicher",
@@ -412,7 +412,7 @@ function shuffledOptions(options) {
 function renderAnswers() {
   const station = stations[currentIndex];
   const attempts = attemptsFor(currentIndex);
-  document.querySelector("#attemptInfo").textContent = attempts === 0 ? "3 Punkte moeglich" : "1 Punkt moeglich";
+  document.querySelector("#attemptInfo").textContent = attempts === 0 ? "3 Punkte möglich" : "1 Punkt möglich";
   answerGrid.innerHTML = "";
   shuffledOptions(station.options).forEach((option) => {
     const button = document.createElement("button");
@@ -440,20 +440,20 @@ async function finishQuestion(points, chosen) {
   updateScore();
   answerGrid.querySelectorAll("button").forEach((btn) => { btn.disabled = true; });
 
+  window.setTimeout(() => {
+    showView("rallyView");
+    showToast(points + " Punkt" + (points === 1 ? "" : "e") + " gespeichert. Gesamt: " + total());
+  }, 500);
+
   try {
     await syncTeamProgress();
-    window.setTimeout(() => {
-      showView("rallyView");
-      showToast(points + " Punkt" + (points === 1 ? "" : "e") + " gespeichert. Gesamt: " + total());
-      isSaving = false;
-    }, 500);
   } catch (error) {
-    feedback.textContent = "Konnte nicht in Firebase speichern. Das Team wurde moeglicherweise geloescht.";
     localStorage.removeItem(teamKey);
     team = null;
-    isSaving = false;
     showToast("Team muss neu angemeldet werden");
     window.setTimeout(() => nameGate.classList.add("is-active"), 900);
+  } finally {
+    isSaving = false;
   }
 }
 
@@ -470,8 +470,13 @@ function answer(option, button) {
   button.disabled = true;
   if (attempts === 0) {
     setAttempts(currentIndex, 1);
-    feedback.textContent = "Nicht ganz. Du hast noch einen Versuch fuer 1 Punkt.";
-    document.querySelector("#attemptInfo").textContent = "1 Punkt moeglich";
+    feedback.textContent = "Nicht ganz. Du hast noch einen Versuch für 1 Punkt.";
+    answerGrid.querySelectorAll("button").forEach((btn) => { btn.disabled = true; });
+    document.querySelector("#attemptInfo").textContent = "1 Punkt möglich";
+    window.setTimeout(() => {
+      showView("rallyView");
+      showToast("Noch ein Versuch für 1 Punkt möglich.");
+    }, 700);
     return;
   }
   feedback.textContent = "Leider falsch. Die Frage ist abgeschlossen.";
@@ -498,7 +503,7 @@ function renderProgress() {
 async function registerTeam(name) {
   const trimmed = name.trim().replace(/\s+/g, " ");
   const id = teamIdFromName(trimmed);
-  if (!id) throw new Error("Bitte einen gueltigen Teamnamen eingeben.");
+  if (!id) throw new Error("Bitte einen gültigen Teamnamen eingeben.");
   const ref = doc(db, "teams", id);
   const existing = await getDoc(ref);
   if (existing.exists()) throw new Error("Dieser Teamname ist schon angemeldet.");
@@ -534,7 +539,7 @@ async function requireTeamName() {
         localStorage.removeItem(teamKey);
         team = null;
         nameGate.classList.add("is-active");
-        showToast("Team wurde geloescht. Bitte neu anmelden.");
+        showToast("Team wurde gelöscht. Bitte neu anmelden.");
       }
     } catch (error) {
       showToast("Firebase nicht erreichbar. Lokaler Stand wird angezeigt.");
@@ -581,4 +586,6 @@ renderStations();
 renderProgress();
 showView("homeView");
 startIntro();
+
+
 
