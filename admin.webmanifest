@@ -1,0 +1,16 @@
+﻿{
+  "name": "Fotorallye Admin",
+  "short_name": "Rallye Admin",
+  "start_url": "admin.html",
+  "display": "standalone",
+  "background_color": "#f4f1e8",
+  "theme_color": "#151816",
+  "icons": [
+    {
+      "src": "assets/icons/admin-icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
