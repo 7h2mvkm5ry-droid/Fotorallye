@@ -28,10 +28,10 @@ const stations=[
     "options": [
       "rot",
       "blau",
-      "grün",
+      "gr\u00FCn",
       "gelb",
       "schwarz",
-      "weiß",
+      "wei\u00DF",
       "silber",
       "violett"
     ]
@@ -39,7 +39,7 @@ const stations=[
   {
     "image": "assets/stations/bild-02.jpg",
     "title": "Bild 2",
-    "prompt": "Welches ist das letzte englische Wort auf der Erklärungs-Tafel?",
+    "prompt": "Welches ist das letzte englische Wort auf der Erkl\u00E4rungs-Tafel?",
     "correct": "reef",
     "options": [
       "reef",
@@ -55,7 +55,7 @@ const stations=[
   {
     "image": "assets/stations/bild-03.jpg",
     "title": "Bild 3",
-    "prompt": "Aus welchem Jahrzehnt stammt der Architekturstil dieses Gebäudes?",
+    "prompt": "Aus welchem Jahrzehnt stammt der Architekturstil dieses Geb\u00E4udes?",
     "correct": "1950er",
     "options": [
       "1950er",
@@ -75,13 +75,13 @@ const stations=[
     "correct": "gelb-schwarz",
     "options": [
       "gelb-schwarz",
-      "rot-weiß",
-      "blau-weiß",
-      "grün-weiß",
-      "schwarz-weiß",
+      "rot-wei\u00DF",
+      "blau-wei\u00DF",
+      "gr\u00FCn-wei\u00DF",
+      "schwarz-wei\u00DF",
       "blau-gelb",
-      "grün-schwarz",
-      "weiß-orange"
+      "gr\u00FCn-schwarz",
+      "wei\u00DF-orange"
     ]
   },
   {
@@ -103,7 +103,7 @@ const stations=[
   {
     "image": "assets/stations/bild-06.jpg",
     "title": "Bild 6",
-    "prompt": "Wie wurden die Bunkerverschlüsse geöffnet? Lies auf der Erklärungs-Tafel nach.",
+    "prompt": "Wie wurden die Bunkerverschl\u00FCsse ge\u00F6ffnet? Lies auf der Erkl\u00E4rungs-Tafel nach.",
     "correct": "per Hand",
     "options": [
       "per Hand",
@@ -135,16 +135,16 @@ const stations=[
   {
     "image": "assets/stations/bild-08.jpg",
     "title": "Bild 8",
-    "prompt": "Welche Farbe hat der Punkt neben „das Gelbe vom Ei“?",
+    "prompt": "Welche Farbe hat der Punkt neben \u201Edas Gelbe vom Ei\u201C?",
     "correct": "blau",
     "options": [
       "blau",
       "gelb",
-      "grün",
+      "gr\u00FCn",
       "rot",
       "orange",
       "schwarz",
-      "weiß",
+      "wei\u00DF",
       "violett"
     ]
   },
@@ -157,17 +157,17 @@ const stations=[
       "Stahlteile unter Wasser",
       "Stromleitungen im Wasser",
       "giftige Gase am Wasser",
-      "tiefe Schächte am Wasser",
+      "tiefe Sch\u00E4chte am Wasser",
       "rutschige Steine im Wasser",
-      "heiße Rohre unter Wasser",
+      "hei\u00DFe Rohre unter Wasser",
       "scharfe Kanten am Ufer",
-      "lockere Geländer am Becken"
+      "lockere Gel\u00E4nder am Becken"
     ]
   },
   {
     "image": "assets/stations/bild-10.jpg",
     "title": "Bild 10",
-    "prompt": "Wie viele Maschinen stehen in der alten Schlackeschäumanlage?",
+    "prompt": "Wie viele Maschinen stehen in der alten Schlackesch\u00E4umanlage?",
     "correct": "7",
     "options": [
       "7",
@@ -183,7 +183,7 @@ const stations=[
   {
     "image": "assets/stations/bild-11.jpg",
     "title": "Bild 11",
-    "prompt": "Wohin geht es links die Treppe rauf? Das Schild verrät es.",
+    "prompt": "Wohin geht es links die Treppe rauf? Das Schild verr\u00E4t es.",
     "correct": "Aussichtsturm HO5",
     "options": [
       "Aussichtsturm HO5",
@@ -191,15 +191,15 @@ const stations=[
       "Aussichtsturm HO2",
       "Aussichtsturm HO3",
       "Aussichtsturm HO4",
-      "Hochofenstraße",
-      "Gießhalle HO5",
+      "Hochofenstra\u00DFe",
+      "Gie\u00DFhalle HO5",
       "Erzbunker HO5"
     ]
   },
   {
     "image": "assets/stations/bild-12.jpg",
     "title": "Bild 12",
-    "prompt": "Wie viele Arbeitsbereiche waren ursprünglich in der Wassermannwerkstatt untergebracht?",
+    "prompt": "Wie viele Arbeitsbereiche waren urspr\u00FCnglich in der Wassermannwerkstatt untergebracht?",
     "correct": "3",
     "options": [
       "3",
@@ -215,7 +215,7 @@ const stations=[
   {
     "image": "assets/stations/bild-13.jpg",
     "title": "Bild 13",
-    "prompt": "Wie viele Bilder hängen in der Hochofenstraße?",
+    "prompt": "Wie viele Bilder h\u00E4ngen in der Hochofenstra\u00DFe?",
     "correct": "8",
     "options": [
       "8",
@@ -237,7 +237,7 @@ const stations=[
       "Klarwasserkanal",
       "Abwasserkanal",
       "Regenwasserbecken",
-      "Kühlwasserbecken",
+      "K\u00FChlwasserbecken",
       "Emscherkanal",
       "Sammelbecken",
       "Wasserspeicher",
@@ -412,7 +412,7 @@ function shuffledOptions(options) {
 function renderAnswers() {
   const station = stations[currentIndex];
   const attempts = attemptsFor(currentIndex);
-  document.querySelector("#attemptInfo").textContent = attempts === 0 ? "3 Punkte möglich" : "1 Punkt möglich";
+  document.querySelector("#attemptInfo").textContent = attempts === 0 ? "3 Punkte m\u00F6glich" : "1 Punkt m\u00F6glich";
   answerGrid.innerHTML = "";
   shuffledOptions(station.options).forEach((option) => {
     const button = document.createElement("button");
@@ -470,12 +470,12 @@ function answer(option, button) {
   button.disabled = true;
   if (attempts === 0) {
     setAttempts(currentIndex, 1);
-    feedback.textContent = "Nicht ganz. Du hast noch einen Versuch für 1 Punkt.";
+    feedback.textContent = "Nicht ganz. Du hast noch einen Versuch f\u00FCr 1 Punkt.";
     answerGrid.querySelectorAll("button").forEach((btn) => { btn.disabled = true; });
-    document.querySelector("#attemptInfo").textContent = "1 Punkt möglich";
+    document.querySelector("#attemptInfo").textContent = "1 Punkt m\u00F6glich";
     window.setTimeout(() => {
       showView("rallyView");
-      showToast("Noch ein Versuch für 1 Punkt möglich.");
+      showToast("Noch ein Versuch f\u00FCr 1 Punkt m\u00F6glich.");
     }, 700);
     return;
   }
@@ -503,7 +503,7 @@ function renderProgress() {
 async function registerTeam(name) {
   const trimmed = name.trim().replace(/\s+/g, " ");
   const id = teamIdFromName(trimmed);
-  if (!id) throw new Error("Bitte einen gültigen Teamnamen eingeben.");
+  if (!id) throw new Error("Bitte einen g\u00FCltigen Teamnamen eingeben.");
   const ref = doc(db, "teams", id);
   const existing = await getDoc(ref);
   if (existing.exists()) throw new Error("Dieser Teamname ist schon angemeldet.");
@@ -539,7 +539,7 @@ async function requireTeamName() {
         localStorage.removeItem(teamKey);
         team = null;
         nameGate.classList.add("is-active");
-        showToast("Team wurde gelöscht. Bitte neu anmelden.");
+        showToast("Team wurde gel\u00F6scht. Bitte neu anmelden.");
       }
     } catch (error) {
       showToast("Firebase nicht erreichbar. Lokaler Stand wird angezeigt.");
@@ -586,6 +586,7 @@ renderStations();
 renderProgress();
 showView("homeView");
 startIntro();
+
 
 
 
