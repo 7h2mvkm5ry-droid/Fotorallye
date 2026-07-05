@@ -1,4 +1,4 @@
-﻿import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
   getFirestore,
   doc,
@@ -272,6 +272,8 @@ const totalScore = document.querySelector("#totalScore");
 const finishedCount = document.querySelector("#finishedCount");
 const progressFill = document.querySelector("#progressFill");
 const progressList = document.querySelector("#progressList");
+const finishBanner = document.querySelector("#finishBanner");
+const finishScore = document.querySelector("#finishScore");
 const splashScreen = document.querySelector("#splashScreen");
 const nameGate = document.querySelector("#nameGate");
 const nameForm = document.querySelector("#nameForm");
@@ -327,6 +329,16 @@ function total() {
     if (key.startsWith("attempts-")) return sum;
     return sum + (state[key]?.points || 0);
   }, 0);
+}
+
+function completedCount() {
+  return stations.filter((_, index) => resultFor(index)).length;
+}
+
+function updateFinishBanner() {
+  const complete = completedCount() === stations.length;
+  finishBanner.classList.toggle("is-visible", complete);
+  if (complete) finishScore.textContent = "Eure Punktzahl ist: " + total();
 }
 
 function completedPayload() {
@@ -444,6 +456,7 @@ async function finishQuestion(points, chosen) {
   window.setTimeout(() => {
     showView("rallyView");
     showToast(points + " Punkt" + (points === 1 ? "" : "e") + " gespeichert. Gesamt: " + total());
+    updateFinishBanner();
   }, 500);
 
   try {
@@ -481,10 +494,11 @@ function answer(option, button) {
 
 function renderProgress() {
   updateScore();
-  const completed = stations.filter((_, index) => resultFor(index)).length;
+  const completed = completedCount();
   totalScore.textContent = total();
   finishedCount.textContent = completed + " von " + stations.length + " Fragen abgeschlossen";
   progressFill.style.width = ((completed / stations.length) * 100) + "%";
+  updateFinishBanner();
   progressList.innerHTML = "";
   stations.forEach((station, index) => {
     const result = resultFor(index);
