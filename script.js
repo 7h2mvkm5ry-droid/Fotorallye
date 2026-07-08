@@ -267,6 +267,10 @@ const views = document.querySelectorAll(".view");
 const stationGrid = document.querySelector("#stationGrid");
 const answerGrid = document.querySelector("#answerGrid");
 const feedback = document.querySelector("#feedback");
+const answerConfirm = document.querySelector("#answerConfirm");
+const answerConfirmText = document.querySelector("#answerConfirmText");
+const answerCancel = document.querySelector("#answerCancel");
+const answerSubmit = document.querySelector("#answerSubmit");
 const headerScore = document.querySelector("#headerScore");
 const totalScore = document.querySelector("#totalScore");
 const finishedCount = document.querySelector("#finishedCount");
@@ -461,11 +465,23 @@ function renderAnswers() {
     button.type = "button";
     button.className = "answer-btn";
     button.textContent = option;
-    button.addEventListener("click", () => answer(option, button));
+    button.addEventListener("click", () => chooseAnswer(option, button));
     answerGrid.appendChild(button);
   });
 }
 
+function chooseAnswer(option, button) {
+  if (isSaving) return;
+  pendingAnswer = { option, button };
+  answerGrid.querySelectorAll(".answer-btn").forEach((item) => item.classList.remove("is-selected"));
+  button.classList.add("is-selected");
+  answerConfirmText.textContent = option;
+  answerConfirm.classList.add("is-active");
+}
+
+function closeAnswerConfirm() {
+  answerConfirm.classList.remove("is-active");
+}
 async function finishQuestion(points, chosen) {
   if (isSaving) return;
   isSaving = true;
@@ -600,6 +616,18 @@ function startIntro() {
     requireTeamName();
   }, 3000);
 }
+
+answerCancel.addEventListener("click", () => {
+  closeAnswerConfirm();
+});
+
+answerSubmit.addEventListener("click", () => {
+  if (!pendingAnswer) return;
+  const { option, button } = pendingAnswer;
+  pendingAnswer = null;
+  closeAnswerConfirm();
+  answer(option, button);
+});
 
 introDone.addEventListener("click", () => {
   if (userIntroIndex < userIntroSteps.length - 1) {
