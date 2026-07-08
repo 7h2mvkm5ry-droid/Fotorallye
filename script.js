@@ -305,6 +305,7 @@ let toastTimer;
 let state = JSON.parse(localStorage.getItem(storageKey) || "{}");
 let team = JSON.parse(localStorage.getItem(teamKey) || "null");
 let currentIndex = 0;
+let pendingAnswer = null;
 let isSaving = false;
 
 function teamIdFromName(name) {
