@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
@@ -17,11 +17,20 @@
     <div class="brand"><span>Landschaftspark Duisburg-Nord</span><h1>Admin</h1></div>
     <div class="score-pill"><strong id="teamCount">0</strong><span>Teams</span></div>
   </header>
+  <div id="adminIntroGate" class="intro-gate" role="dialog" aria-modal="true" aria-labelledby="adminIntroTitle">
+    <div class="intro-card">
+      <p id="adminIntroKicker">Admin-Hinweis 1 von 3</p>
+      <h2 id="adminIntroTitle">Teamnamen absprechen</h2>
+      <span id="adminIntroText">Lass dir vor dem Start die Teamnamen geben. Tauchen in deiner Liste später andere Namen auf, will wahrscheinlich jemand schummeln. Diese Namen kannst du einfach löschen.</span>
+      <button id="adminIntroNext" class="primary-action" type="button">Weiter</button>
+    </div>
+  </div>
   <main>
     <section class="progress-hero admin-hero">
       <p>Auswertung</p>
       <h2>Team-Fortschritt</h2>
       <small>Hier siehst du angemeldete Teams live und kannst falsche Eintr&auml;ge l&ouml;schen.</small>
+      <button id="adminMoreInfo" class="ghost-action admin-info-action" type="button">Weitere Erklärungen</button>
     </section>
     <div id="adminList" class="admin-list"></div>
   </main>

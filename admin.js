@@ -1,4 +1,4 @@
-﻿import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
   getFirestore,
   collection,
@@ -20,6 +20,26 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const adminList = document.querySelector("#adminList");
 const teamCount = document.querySelector("#teamCount");
+const adminIntroGate = document.querySelector("#adminIntroGate");
+const adminIntroKicker = document.querySelector("#adminIntroKicker");
+const adminIntroTitle = document.querySelector("#adminIntroTitle");
+const adminIntroText = document.querySelector("#adminIntroText");
+const adminIntroNext = document.querySelector("#adminIntroNext");
+const adminMoreInfo = document.querySelector("#adminMoreInfo");
+const adminIntroSeenKey = "landschaftspark-admin-intro-seen";
+const adminIntroSteps = [
+  { title: "Teamnamen absprechen", text: "Lass dir vor dem Start die Teamnamen geben. Tauchen in deiner Liste sp\u00E4ter andere Namen auf, will wahrscheinlich jemand schummeln. Diese Namen kannst du einfach l\u00F6schen." },
+  { title: "Teamnamen verwalten", text: "Jeder Teamname kann nur einmal verwendet werden. Wenn ein Team neu starten soll, musst du den Teamnamen l\u00F6schen und die Kinder m\u00FCssen die App einmal neu laden." },
+  { title: "Reset / Neustart", text: "Es gibt in der App keinen Reset-Button f\u00FCr Teams. Ein Neustart geht bewusst nur \u00FCber den Admin, damit niemand aus Versehen den Fortschritt l\u00F6scht." }
+];
+const adminExtraSteps = [
+  ...adminIntroSteps,
+  { title: "Fortschritt pr\u00FCfen", text: "In der Liste siehst du Punktzahl, erledigte Bilder und letzte Aktivit\u00E4t. So erkennst du schnell, ob ein Team fertig ist oder festh\u00E4ngt." },
+  { title: "Alte Seite sichtbar?", text: "Nach \u00C4nderungen an der App m\u00FCssen die Kinder die Seite manchmal neu laden. Bei Home-Bildschirm-Icons hilft notfalls, die Verkn\u00FCpfung neu anzulegen." },
+  { title: "Maximalpunktzahl", text: "15 Bilder mal 3 Punkte ergeben 45 Punkte. Ein zweiter richtiger Versuch z\u00E4hlt nur noch 1 Punkt, ein falscher zweiter Versuch 0 Punkte." }
+];
+let activeAdminSteps = adminIntroSteps;
+let adminIntroIndex = 0;
 
 function formatDate(value) {
   if (!value?.toDate) return "-";
@@ -69,3 +89,35 @@ onSnapshot(collection(db, "teams"), renderTeams, (error) => {
 });
 
 
+
+function renderAdminIntroStep() {
+  const step = activeAdminSteps[adminIntroIndex];
+  const prefix = activeAdminSteps === adminExtraSteps ? "Erklärung " : "Admin-Hinweis ";
+  adminIntroKicker.textContent = prefix + (adminIntroIndex + 1) + " von " + activeAdminSteps.length;
+  adminIntroTitle.textContent = step.title;
+  adminIntroText.textContent = step.text;
+  adminIntroNext.textContent = adminIntroIndex === activeAdminSteps.length - 1 ? "Alles klar" : "Weiter";
+  adminIntroGate.querySelector(".intro-card").classList.toggle("is-extra", activeAdminSteps === adminExtraSteps);
+}
+
+function showAdminIntro(steps, remember) {
+  activeAdminSteps = steps;
+  adminIntroIndex = 0;
+  adminIntroGate.dataset.remember = remember ? "yes" : "no";
+  renderAdminIntroStep();
+  adminIntroGate.classList.add("is-active");
+}
+
+adminIntroNext.addEventListener("click", () => {
+  if (adminIntroIndex < activeAdminSteps.length - 1) {
+    adminIntroIndex += 1;
+    renderAdminIntroStep();
+    return;
+  }
+  adminIntroGate.classList.remove("is-active");
+  if (adminIntroGate.dataset.remember === "yes") localStorage.setItem(adminIntroSeenKey, "yes");
+});
+
+adminMoreInfo.addEventListener("click", () => showAdminIntro(adminExtraSteps, false));
+
+if (localStorage.getItem(adminIntroSeenKey) !== "yes") showAdminIntro(adminIntroSteps, true);

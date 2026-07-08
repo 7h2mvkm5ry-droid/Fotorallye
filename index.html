@@ -31,16 +31,13 @@
   </div>
   <div id="introGate" class="intro-gate" role="dialog" aria-modal="true" aria-labelledby="introTitle">
     <div class="intro-card">
-      <p>Landschaftspark Duisburg-Nord</p>
-      <h2 id="introTitle">So funktioniert die Fotorallye</h2>
-      <ol>
-        <li><strong>Bilder suchen</strong><span>In der App findest du Bilder, die du im Landschaftspark suchen musst. In der Nähe der Orte findest du die Antworten auf die Fragen.</span></li>
-        <li><strong>Nicht raten</strong><span>Du hast pro Bild nur zwei Versuche: Versuch 1 bringt 3 Punkte, Versuch 2 bringt 1 Punkt. Danach ist die Frage geschlossen.</span></li>
-        <li><strong>45 Punkte sind möglich</strong><span>Mit 15 Bildern könnt ihr maximal 45 Punkte erreichen. Euer Fortschritt wird automatisch gespeichert.</span></li>
-      </ol>
-      <button id="introDone" class="primary-action" type="button">Alles klar</button>
+      <p id="introKicker">Schritt 1 von 3</p>
+      <h2 id="introTitle">Bilder suchen</h2>
+      <span id="introText">In der App findest du Bilder, die du im Landschaftspark suchen musst. In der Nähe der Orte findest du die Antworten auf die Fragen.</span>
+      <button id="introDone" class="primary-action" type="button">Weiter</button>
     </div>
-  </div>  <main>
+  </div>
+  <main>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <section id="finishBanner" class="finish-banner" aria-live="polite"><div class="confetti" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="finish-content"><p>Geschafft!</p><h2 id="finishScore">Eure Punktzahl ist: 0</h2><small>Die Rallye ist abgeschlossen.</small></div></section>
     <section id="homeView" class="view home-view is-active" aria-label="Start">

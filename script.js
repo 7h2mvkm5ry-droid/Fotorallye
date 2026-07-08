@@ -282,6 +282,21 @@ const nameError = document.querySelector("#nameError");
 const playerBadge = document.querySelector("#playerBadge");
 const toast = document.querySelector("#toast");
 
+const userIntroSteps = [
+  {
+    title: "Bilder suchen",
+    text: "In der App findest du Bilder, die du im Landschaftspark suchen musst. In der N\u00E4he der Orte findest du die Antworten auf die Fragen."
+  },
+  {
+    title: "Nicht raten",
+    text: "Du hast pro Bild nur zwei Versuche: Versuch 1 bringt 3 Punkte, Versuch 2 bringt 1 Punkt. Danach ist die Frage geschlossen."
+  },
+  {
+    title: "45 Punkte sind m\u00F6glich",
+    text: "Mit 15 Bildern k\u00F6nnt ihr maximal 45 Punkte erreichen. Euer Fortschritt wird automatisch gespeichert."
+  }
+];
+let userIntroIndex = 0;
 let toastTimer;
 let state = JSON.parse(localStorage.getItem(storageKey) || "{}");
 let team = JSON.parse(localStorage.getItem(teamKey) || "null");
@@ -307,7 +322,17 @@ function saveTeamLocal(nextTeam) {
   playerBadge.textContent = team.name;
 }
 
+function renderUserIntroStep() {
+  const step = userIntroSteps[userIntroIndex];
+  introKicker.textContent = "Schritt " + (userIntroIndex + 1) + " von " + userIntroSteps.length;
+  introTitle.textContent = step.title;
+  introText.textContent = step.text;
+  introDone.textContent = userIntroIndex === userIntroSteps.length - 1 ? "Alles klar" : "Weiter";
+}
+
 function showIntroGuide() {
+  userIntroIndex = 0;
+  renderUserIntroStep();
   introGate.classList.add("is-active");
 }
 
@@ -558,7 +583,7 @@ async function requireTeamName() {
         renderProgress();
         updateFinishBanner();
         nameGate.classList.add("is-active");
-        showToast("Team wurde gel\\u00F6scht. Bitte neu anmelden.");
+        showToast("Team wurde gel\u00F6scht. Bitte neu anmelden.");
       }
     } catch (error) {
       showToast("Firebase nicht erreichbar. Lokaler Stand wird angezeigt.");
@@ -577,6 +602,11 @@ function startIntro() {
 }
 
 introDone.addEventListener("click", () => {
+  if (userIntroIndex < userIntroSteps.length - 1) {
+    userIntroIndex += 1;
+    renderUserIntroStep();
+    return;
+  }
   introGate.classList.remove("is-active");
   showToast("Willkommen, " + (team?.name || "Team"));
 });
