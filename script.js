@@ -307,6 +307,10 @@ function saveTeamLocal(nextTeam) {
   playerBadge.textContent = team.name;
 }
 
+function showIntroGuide() {
+  introGate.classList.add("is-active");
+}
+
 function showToast(message) {
   toast.textContent = message;
   toast.classList.add("is-visible");
@@ -572,6 +576,11 @@ function startIntro() {
   }, 3000);
 }
 
+introDone.addEventListener("click", () => {
+  introGate.classList.remove("is-active");
+  showToast("Willkommen, " + (team?.name || "Team"));
+});
+
 nameForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const name = playerNameInput.value.trim();
@@ -583,7 +592,7 @@ nameForm.addEventListener("submit", async (event) => {
   try {
     await registerTeam(name);
     nameGate.classList.remove("is-active");
-    showToast("Willkommen, " + name);
+    showIntroGuide();
     renderStations();
     renderProgress();
   } catch (error) {
